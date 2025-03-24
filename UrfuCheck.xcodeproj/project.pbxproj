@@ -6,6 +6,26 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D14EFD572D909CF00036782F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14EFD452D909CF00036782F /* Assets.xcassets */; };
+		D14EFD582D909CF00036782F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14EFD4A2D909CF00036782F /* Preview Assets.xcassets */; };
+		D14EFD592D909CF00036782F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD462D909CF00036782F /* Extension.swift */; };
+		D14EFD5A2D909CF00036782F /* SignUPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD4C2D909CF00036782F /* SignUPView.swift */; };
+		D14EFD5B2D909CF00036782F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD532D909CF00036782F /* ContentView.swift */; };
+		D14EFD5C2D909CF00036782F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD542D909CF00036782F /* Model.swift */; };
+		D14EFD5D2D909CF00036782F /* UrfuCheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD552D909CF00036782F /* UrfuCheckApp.swift */; };
+		D14EFD602D909CF80036782F /* UrfuCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD5E2D909CF80036782F /* UrfuCheckTests.swift */; };
+		D14EFD642D909CFB0036782F /* UrfuCheckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */; };
+		D14EFD652D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD622D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift */; };
+		D154A7A22D91B4230036C922 /* CheckingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154A7A12D91B4230036C922 /* CheckingView.swift */; };
+		D154A7A72D91BEF20036C922 /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154A7A62D91BEF20036C922 /* CustomTextEditor.swift */; };
+		D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154A7A92D91D46F0036C922 /* PrimaryButton.swift */; };
+		D1B836C42D918895006D776E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B836C32D918895006D776E /* APIService.swift */; };
+		D1B836C62D9188C4006D776E /* CheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B836C52D9188C4006D776E /* CheckResponse.swift */; };
+		D1B836C82D9188F5006D776E /* CheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B836C72D9188F5006D776E /* CheckViewModel.swift */; };
+		D1B836CA2D91891F006D776E /* CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B836C92D91891F006D776E /* CheckView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D1426AE12D6B5E8200DF8A97 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,25 +47,24 @@
 		D1426AD02D6B5E8100DF8A97 /* UrfuCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrfuCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1426AE02D6B5E8200DF8A97 /* UrfuCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrfuCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1426AEA2D6B5E8200DF8A97 /* UrfuCheckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrfuCheckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D14EFD452D909CF00036782F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D14EFD462D909CF00036782F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D14EFD4A2D909CF00036782F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D14EFD4C2D909CF00036782F /* SignUPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPView.swift; sourceTree = "<group>"; };
+		D14EFD532D909CF00036782F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D14EFD542D909CF00036782F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D14EFD552D909CF00036782F /* UrfuCheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckApp.swift; sourceTree = "<group>"; };
+		D14EFD5E2D909CF80036782F /* UrfuCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckTests.swift; sourceTree = "<group>"; };
+		D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckUITests.swift; sourceTree = "<group>"; };
+		D14EFD622D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D154A7A12D91B4230036C922 /* CheckingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingView.swift; sourceTree = "<group>"; };
+		D154A7A62D91BEF20036C922 /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
+		D154A7A92D91D46F0036C922 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		D1B836C32D918895006D776E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		D1B836C52D9188C4006D776E /* CheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckResponse.swift; sourceTree = "<group>"; };
+		D1B836C72D9188F5006D776E /* CheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewModel.swift; sourceTree = "<group>"; };
+		D1B836C92D91891F006D776E /* CheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		D1426AD22D6B5E8100DF8A97 /* UrfuCheck */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = UrfuCheck;
-			sourceTree = "<group>";
-		};
-		D1426AE32D6B5E8200DF8A97 /* UrfuCheckTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = UrfuCheckTests;
-			sourceTree = "<group>";
-		};
-		D1426AED2D6B5E8200DF8A97 /* UrfuCheckUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = UrfuCheckUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D1426ACD2D6B5E8100DF8A97 /* Frameworks */ = {
@@ -75,9 +94,9 @@
 		D1426AC72D6B5E8100DF8A97 = {
 			isa = PBXGroup;
 			children = (
-				D1426AD22D6B5E8100DF8A97 /* UrfuCheck */,
-				D1426AE32D6B5E8200DF8A97 /* UrfuCheckTests */,
-				D1426AED2D6B5E8200DF8A97 /* UrfuCheckUITests */,
+				D14EFD562D909CF00036782F /* UrfuCheck */,
+				D14EFD5F2D909CF80036782F /* UrfuCheckTests */,
+				D14EFD632D909CFB0036782F /* UrfuCheckUITests */,
 				D1426AD12D6B5E8100DF8A97 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +109,140 @@
 				D1426AEA2D6B5E8200DF8A97 /* UrfuCheckUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D14EFD472D909CF00036782F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D14EFD452D909CF00036782F /* Assets.xcassets */,
+				D14EFD462D909CF00036782F /* Extension.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		D14EFD482D909CF00036782F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D1B836C32D918895006D776E /* APIService.swift */,
+				D1B836C52D9188C4006D776E /* CheckResponse.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		D14EFD492D909CF00036782F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1B836C72D9188F5006D776E /* CheckViewModel.swift */,
+				D14EFD542D909CF00036782F /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D14EFD4B2D909CF00036782F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D14EFD4A2D909CF00036782F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D14EFD4D2D909CF00036782F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D14EFD4C2D909CF00036782F /* SignUPView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		D14EFD4E2D909CF00036782F /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		D14EFD4F2D909CF00036782F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D1B836C92D91891F006D776E /* CheckView.swift */,
+				D154A7A12D91B4230036C922 /* CheckingView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D14EFD502D909CF00036782F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D14EFD512D909CF00036782F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		D14EFD522D909CF00036782F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D14EFD4D2D909CF00036782F /* Authentication */,
+				D14EFD4E2D909CF00036782F /* History */,
+				D14EFD4F2D909CF00036782F /* Main */,
+				D14EFD502D909CF00036782F /* Profile */,
+				D14EFD512D909CF00036782F /* Setting */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D14EFD562D909CF00036782F /* UrfuCheck */ = {
+			isa = PBXGroup;
+			children = (
+				D14EFD552D909CF00036782F /* UrfuCheckApp.swift */,
+				D14EFD532D909CF00036782F /* ContentView.swift */,
+				D154A7A52D91BEDF0036C922 /* Helpers */,
+				D14EFD522D909CF00036782F /* View */,
+				D154A7A82D91D4630036C922 /* Buttons */,
+				D14EFD492D909CF00036782F /* Model */,
+				D14EFD482D909CF00036782F /* Manager */,
+				D14EFD472D909CF00036782F /* Assets */,
+				D14EFD4B2D909CF00036782F /* Preview Content */,
+			);
+			path = UrfuCheck;
+			sourceTree = "<group>";
+		};
+		D14EFD5F2D909CF80036782F /* UrfuCheckTests */ = {
+			isa = PBXGroup;
+			children = (
+				D14EFD5E2D909CF80036782F /* UrfuCheckTests.swift */,
+			);
+			path = UrfuCheckTests;
+			sourceTree = "<group>";
+		};
+		D14EFD632D909CFB0036782F /* UrfuCheckUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */,
+				D14EFD622D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift */,
+			);
+			path = UrfuCheckUITests;
+			sourceTree = "<group>";
+		};
+		D154A7A52D91BEDF0036C922 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D154A7A62D91BEF20036C922 /* CustomTextEditor.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D154A7A82D91D4630036C922 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D154A7A92D91D46F0036C922 /* PrimaryButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +259,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				D1426AD22D6B5E8100DF8A97 /* UrfuCheck */,
 			);
 			name = UrfuCheck;
 			packageProductDependencies = (
@@ -130,9 +280,6 @@
 			dependencies = (
 				D1426AE22D6B5E8200DF8A97 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				D1426AE32D6B5E8200DF8A97 /* UrfuCheckTests */,
-			);
 			name = UrfuCheckTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +299,6 @@
 			);
 			dependencies = (
 				D1426AEC2D6B5E8200DF8A97 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D1426AED2D6B5E8200DF8A97 /* UrfuCheckUITests */,
 			);
 			name = UrfuCheckUITests;
 			packageProductDependencies = (
@@ -212,6 +356,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14EFD572D909CF00036782F /* Assets.xcassets in Resources */,
+				D14EFD582D909CF00036782F /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +382,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14EFD592D909CF00036782F /* Extension.swift in Sources */,
+				D1B836C82D9188F5006D776E /* CheckViewModel.swift in Sources */,
+				D154A7A22D91B4230036C922 /* CheckingView.swift in Sources */,
+				D14EFD5A2D909CF00036782F /* SignUPView.swift in Sources */,
+				D1B836C62D9188C4006D776E /* CheckResponse.swift in Sources */,
+				D14EFD5B2D909CF00036782F /* ContentView.swift in Sources */,
+				D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */,
+				D1B836CA2D91891F006D776E /* CheckView.swift in Sources */,
+				D14EFD5C2D909CF00036782F /* Model.swift in Sources */,
+				D1B836C42D918895006D776E /* APIService.swift in Sources */,
+				D154A7A72D91BEF20036C922 /* CustomTextEditor.swift in Sources */,
+				D14EFD5D2D909CF00036782F /* UrfuCheckApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14EFD602D909CF80036782F /* UrfuCheckTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14EFD642D909CFB0036782F /* UrfuCheckUITests.swift in Sources */,
+				D14EFD652D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,9 +564,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,9 +598,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
