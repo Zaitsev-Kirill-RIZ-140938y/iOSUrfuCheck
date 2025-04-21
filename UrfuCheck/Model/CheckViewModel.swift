@@ -15,26 +15,32 @@ class CheckViewModel: ObservableObject {
 
     func check(text: String) async {
         isLoading = true
-        errorMessage = nil
+        defer { isLoading = false }
 
         do {
-            let response = try await APIService.shared.sendText(text)
+            let resp = try await APIService.shared.sendText(text)
 
-            let unique = response.full_response.percent
-            let cleanText = response.full_response.text
-            let sourceURL = response.full_response.matches.first?.url ?? "—"
+            // если бек вернул error != ""
+            if !resp.error.isEmpty {
+                throw APIError.backendError(resp.error)
+            }
 
-            self.result = """
-            🧠 Уникальность: \(unique)%
-            📎 Источник: \(sourceURL)
+            // превращаем строку "0.0" или "87,4" в Double
+            let percentValue = Double(resp.percent.replacingOccurrences(of: ",", with: ".")) ?? 0
 
-            💬 Текст:
-            \(cleanText)
+            // первый источник, если есть
+            let source = resp.matches.first?.url ?? "—"
+
+            result = """
+            🧠 Уникальность: \(String(format: "%.2f", percentValue)) %
+            📎 Источник: \(source)
+
+            💬 Текст:
+            \(resp.text)
             """
         } catch {
-            self.errorMessage = "Ошибка: \(error.localizedDescription)"
+            // Показываем понятную ошибку
+            errorMessage = error.localizedDescription
         }
-
-        isLoading = false
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CustomTextEditor: UIViewRepresentable {
+    
     @Binding var text: String
     var textColor: UIColor = .white
     var backgroundColor: UIColor = .clear

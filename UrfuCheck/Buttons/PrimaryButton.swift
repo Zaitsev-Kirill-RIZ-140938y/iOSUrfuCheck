@@ -20,7 +20,7 @@ struct PrimaryButton: View {
             Text(title)
                 .font(DS.Font.fontTitleHead)
                 .foregroundColor(DS.Color.titleColor)
-                .frame(width: 342, height: 48)
+                .frame(maxWidth: .infinity, maxHeight: 48)
                 .background(DS.Color.positiveColor)
                 .cornerRadius(40)
         }
