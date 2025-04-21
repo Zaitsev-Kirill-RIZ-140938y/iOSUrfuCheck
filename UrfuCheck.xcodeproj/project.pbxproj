@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D138CB262DB68966008AC935 /* DoubleOrString.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138CB252DB68966008AC935 /* DoubleOrString.swift.swift */; };
 		D14EFD572D909CF00036782F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14EFD452D909CF00036782F /* Assets.xcassets */; };
 		D14EFD582D909CF00036782F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14EFD4A2D909CF00036782F /* Preview Assets.xcassets */; };
 		D14EFD592D909CF00036782F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD462D909CF00036782F /* Extension.swift */; };
 		D14EFD5A2D909CF00036782F /* SignUPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD4C2D909CF00036782F /* SignUPView.swift */; };
 		D14EFD5B2D909CF00036782F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD532D909CF00036782F /* ContentView.swift */; };
-		D14EFD5C2D909CF00036782F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD542D909CF00036782F /* Model.swift */; };
 		D14EFD5D2D909CF00036782F /* UrfuCheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD552D909CF00036782F /* UrfuCheckApp.swift */; };
 		D14EFD602D909CF80036782F /* UrfuCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD5E2D909CF80036782F /* UrfuCheckTests.swift */; };
 		D14EFD642D909CFB0036782F /* UrfuCheckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */; };
@@ -22,7 +20,6 @@
 		D154A7A72D91BEF20036C922 /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154A7A62D91BEF20036C922 /* CustomTextEditor.swift */; };
 		D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154A7A92D91D46F0036C922 /* PrimaryButton.swift */; };
 		D1B836C42D918895006D776E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B836C32D918895006D776E /* APIService.swift */; };
-		D1B836C62D9188C4006D776E /* CheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B836C52D9188C4006D776E /* CheckResponse.swift */; };
 		D1B836C82D9188F5006D776E /* CheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B836C72D9188F5006D776E /* CheckViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D138CB252DB68966008AC935 /* DoubleOrString.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleOrString.swift.swift; sourceTree = "<group>"; };
 		D1426AD02D6B5E8100DF8A97 /* UrfuCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrfuCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1426AE02D6B5E8200DF8A97 /* UrfuCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrfuCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1426AEA2D6B5E8200DF8A97 /* UrfuCheckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrfuCheckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +49,6 @@
 		D14EFD4A2D909CF00036782F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D14EFD4C2D909CF00036782F /* SignUPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPView.swift; sourceTree = "<group>"; };
 		D14EFD532D909CF00036782F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D14EFD542D909CF00036782F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D14EFD552D909CF00036782F /* UrfuCheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckApp.swift; sourceTree = "<group>"; };
 		D14EFD5E2D909CF80036782F /* UrfuCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckTests.swift; sourceTree = "<group>"; };
 		D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckUITests.swift; sourceTree = "<group>"; };
@@ -62,7 +57,6 @@
 		D154A7A62D91BEF20036C922 /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
 		D154A7A92D91D46F0036C922 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		D1B836C32D918895006D776E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		D1B836C52D9188C4006D776E /* CheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckResponse.swift; sourceTree = "<group>"; };
 		D1B836C72D9188F5006D776E /* CheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				D1B836C32D918895006D776E /* APIService.swift */,
-				D1B836C52D9188C4006D776E /* CheckResponse.swift */,
-				D138CB252DB68966008AC935 /* DoubleOrString.swift.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -134,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				D1B836C72D9188F5006D776E /* CheckViewModel.swift */,
-				D14EFD542D909CF00036782F /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,14 +377,11 @@
 				D1B836C82D9188F5006D776E /* CheckViewModel.swift in Sources */,
 				D154A7A22D91B4230036C922 /* CheckingView.swift in Sources */,
 				D14EFD5A2D909CF00036782F /* SignUPView.swift in Sources */,
-				D1B836C62D9188C4006D776E /* CheckResponse.swift in Sources */,
 				D14EFD5B2D909CF00036782F /* ContentView.swift in Sources */,
 				D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */,
-				D14EFD5C2D909CF00036782F /* Model.swift in Sources */,
 				D1B836C42D918895006D776E /* APIService.swift in Sources */,
 				D154A7A72D91BEF20036C922 /* CustomTextEditor.swift in Sources */,
 				D14EFD5D2D909CF00036782F /* UrfuCheckApp.swift in Sources */,
-				D138CB262DB68966008AC935 /* DoubleOrString.swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
