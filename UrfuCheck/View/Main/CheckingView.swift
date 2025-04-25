@@ -11,6 +11,7 @@ struct CheckingView: View {
     
     @StateObject private var viewModel = CheckViewModel()
     @State private var inputText = ""
+    @State private var characterCount: Int = 0
     
     init() {
             UITextView.appearance().backgroundColor = .clear
@@ -25,15 +26,14 @@ struct CheckingView: View {
                 .padding(.top, 20)
                 .padding(.bottom, 30)
             
-            CustomTextEditor(
-                text: $inputText,
-                textColor: DS.UIColors.titleColor,
-                backgroundColor: DS.UIColors.navColor,
-                font: DS.UIFonts.fontText
-            )
-            .frame(height: 400)
-            .padding(.bottom, 40)
-            
+            TextEditor(text: $inputText)
+                .frame(height: 400)
+                .scrollContentBackground(.hidden)
+                .background(DS.Color.navColor)
+                .foregroundColor(DS.Color.titleColor)
+                .cornerRadius(8)
+                .padding(.bottom, 40)
+
             PrimaryButton(title: "Проверить") {
                 await viewModel.check(text: inputText)
             }
