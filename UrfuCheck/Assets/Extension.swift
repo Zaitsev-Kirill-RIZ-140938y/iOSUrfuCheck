@@ -8,7 +8,8 @@
 import SwiftUI
 import UIKit
 
-enum DS { // DS = Design System
+// DS = Design System
+enum DS {
     enum Font {
         static let fontTitle1 = SwiftUI.Font.system(size: 34, weight: .bold)
         static let fontTitle3 = SwiftUI.Font.system(size: 20, weight: .regular)
