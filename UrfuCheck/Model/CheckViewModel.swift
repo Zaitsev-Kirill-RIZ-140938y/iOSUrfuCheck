@@ -1,46 +1,35 @@
 //
-//  CheckViewModel.swift
+//  CheckVM.swift
 //  UrfuCheck
 //
-//  Created by Кирилл Зайцев on 24.03.2025.
+//  Created by Кирилл Зайцев on 10.05.2025.
 //
 
-import Foundation
+import SwiftUI
 
 @MainActor
-class CheckViewModel: ObservableObject {
-    @Published var result: String = ""
-    @Published var isLoading = false
-    @Published var errorMessage: String?
+final class CheckVM: ObservableObject {
+    enum State {
+            case idle
+            case running
+            case done(Double)
+            case error(String)
+        }
 
-    func check(text: String) async {
-        isLoading = true
-        defer { isLoading = false }
+    @Published var remaining = 5
+    @Published var state: State = .idle
 
-        do {
-            let resp = try await APIService.shared.sendText(text)
-
-            // если бек вернул error != ""
-            if !resp.error.isEmpty {
-                throw APIError.backendError(resp.error)
+    func run(text: String) {
+        Task {
+            do {
+                state = .running
+                let resp = try await Backend.shared.submit(text: text)
+                remaining = resp.remaining          // обновили счётчик
+                let result = try await Backend.shared.poll(uid: resp.uid)
+                state = .done(result.text_unique)
+            } catch {
+                state = .error(error.localizedDescription)
             }
-
-            // превращаем строку "0.0" или "87,4" в Double
-            let percentValue = Double(resp.percent.replacingOccurrences(of: ",", with: ".")) ?? 0
-
-            // первый источник, если есть
-            let source = resp.matches.first?.url ?? "—"
-
-            result = """
-            🧠 Уникальность: \(String(format: "%.2f", percentValue)) %
-            📎 Источник: \(source)
-
-            💬 Текст:
-            \(resp.text)
-            """
-        } catch {
-            // Показываем понятную ошибку
-            errorMessage = error.localizedDescription
         }
     }
 }
