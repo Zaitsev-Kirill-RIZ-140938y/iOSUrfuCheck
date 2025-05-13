@@ -34,13 +34,21 @@ struct SignUpView: View {
             .padding(.bottom, 50)
             
             VStack(spacing: 20) {
-                TextField("Имя", text: $name)
-                    .textFieldStyle(.roundedBorder)
-                TextField("Почта", text: $email)
-                    .textFieldStyle(.roundedBorder)
-                    .keyboardType(.emailAddress)
-                SecureField("Пароль", text: $password)
-                    .textFieldStyle(.roundedBorder)
+                CustomTextField(
+                    iconName: "person.fill",
+                    placeholder: "Имя",
+                    text: $name
+                )
+                CustomTextField(
+                    iconName: "envelope.fill",
+                    placeholder: "Почта",
+                    text: $email
+                )
+                SecureTextField(
+                    iconName: "lock.fill",
+                    placeholder: "Пароль",
+                    text: $password
+                )
             }
             
             PrimaryButton(title: "Зарегистрироваться") {
@@ -53,6 +61,9 @@ struct SignUpView: View {
                     .font(DS.Font.fontText)
                     .fontWeight(.bold)
                     .foregroundColor(DS.Color.titleColor)
+                
+                Spacer()
+                
                 Button("Войти") {
                     onToggleAuth()
                 }
@@ -60,10 +71,8 @@ struct SignUpView: View {
                 .font(DS.Font.fontText)
                 .fontWeight(.bold)
                 .foregroundColor(DS.Color.positiveColor).bold()
-                
-                Spacer()
             }
-            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 16)
             .padding(.top, 62)
             
             if case .error(let message) = vm.state {
@@ -81,7 +90,6 @@ struct SignUpView: View {
         }
         .padding(.horizontal, 24)
         .background(DS.Color.fonColor)
-        .ignoresSafeArea()
     }
 }
 

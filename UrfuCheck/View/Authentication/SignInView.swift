@@ -10,59 +10,84 @@ import FirebaseAuth
 
 struct SignInView: View {
     @StateObject private var vm = SignInViewModel()
-
+    
     @State private var email = ""
     @State private var password = ""
-
+    
     var onToggleAuth: () -> Void
+    var onAuthSuccess: () -> Void = {}
     
     var body: some View {
-        VStack(spacing: 24) {
-            VStack(spacing: 8) {
+        VStack {
+            VStack(spacing: 30) {
                 Text("Вход")
-                    .font(.largeTitle).bold()
+                    .font(DS.Font.fontTitle1)
+                    .foregroundStyle(DS.Color.titleColor)
                 Text("Введите свои учетные данные, чтобы продолжить.")
-                    .font(.subheadline)
+                    .font(DS.Font.fontTitle3)
+                    .fontWeight(.bold)
+                    .foregroundStyle(DS.Color.titleColor)
                     .multilineTextAlignment(.center)
             }
-
-            VStack(spacing: 16) {
-                TextField("Почта", text: $email)
-                    .textFieldStyle(.roundedBorder)
-                    .keyboardType(.emailAddress)
-                SecureField("Пароль", text: $password)
-                    .textFieldStyle(.roundedBorder)
+            .padding(.top, 70)
+            .padding(.bottom, 50)
+            
+            VStack(spacing: 20) {
+                CustomTextField(
+                    iconName: "envelope.fill",
+                    placeholder: "Почта",
+                    text: $email,
+                    iconWidth: 19,
+                    iconHeight: 22
+                )
+                SecureTextField(
+                    iconName: "lock.fill",
+                    placeholder: "Пароль",
+                    text: $password,
+                    iconWidth: 19,
+                    iconHeight: 22
+                )
             }
-
-            Button("Войти") {
+            
+            PrimaryButton(title: "Войти") {
                 vm.signIn(email: email, password: password)
             }
-            .buttonStyle(.borderedProminent)
-            .disabled(vm.state == .loading)
+            .padding(.top, 40)
             
-            HStack(spacing: 4) {
+            HStack {
                 Text("Нет аккаунта?")
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                Button("Регистрация") {
+                    .font(DS.Font.fontText)
+                    .fontWeight(.bold)
+                    .foregroundColor(DS.Color.titleColor)
+                
+                Spacer()
+                
+                Button("Зарегистрироваться") {
                     onToggleAuth()
                 }
                 .buttonStyle(.plain)
-                .font(.body.bold())
-                .foregroundColor(DS.Color.positiveColor)
+                .font(DS.Font.fontText)
+                .fontWeight(.bold)
+                .foregroundColor(DS.Color.positiveColor).bold()
             }
-            .padding(.bottom, 16)
-
+            .padding(.horizontal, 16)
+            .padding(.top, 62)
+            
             if case .error(let message) = vm.state {
                 Text(message).foregroundColor(.red).font(.footnote)
             }
-
+            
             Spacer()
         }
-        .padding()
+        .onChange(of: vm.state) { state in
+            if state == .idle {
+                onAuthSuccess()
+            }
+        }
+        .padding(.horizontal, 24)
+        .background(DS.Color.fonColor)
     }
 }
-
 
 #Preview {
     SignInView(onToggleAuth: { })
