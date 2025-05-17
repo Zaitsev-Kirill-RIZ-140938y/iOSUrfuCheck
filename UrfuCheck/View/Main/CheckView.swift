@@ -11,75 +11,130 @@ struct CheckView: View {
     
     @StateObject private var vm = CheckViewModel()
     @State private var text = ""
+    @FocusState private var editorFocused: Bool
+    
+    @State private var showResult = false
+    @State private var uniqueResult: Double = 0
+    
+    init() {
+#if DEBUG
+        // В DEBUG используем мок-сервис
+        _vm = StateObject(
+            wrappedValue: CheckViewModel(
+                service: MockPlagiarismService(scenario: .random)
+            )
+        )
+#else
+        // В релизе — реальный сервис
+        _vm = StateObject(
+            wrappedValue: CheckViewModel()
+        )
+#endif
+    }
     
     var body: some View {
-        VStack {
-            VStack(spacing: 30) {
-                Text("Проверка на плагиат")
-                    .font(DS.Font.fontTitleHead)
-                    .foregroundStyle(DS.Color.titleColor)
-                
-                ZStack(alignment: .topLeading) {
-                    // Placeholder
-                    if text.isEmpty {
-                        Text("Введите текст для проверки")
-                            .foregroundStyle(DS.Color.textColor)
-                            .font(DS.Font.fontText)
-                            .padding(.top, 8)
-                            .padding(.leading, 4)
-                    }
-                    TextEditor(text: $text)
-                        .scrollContentBackground(.hidden)
+        NavigationStack {
+            VStack {
+                VStack(spacing: 30) {
+                    Text("Проверка на плагиат")
+                        .font(DS.Font.fontTitleHead)
                         .foregroundStyle(DS.Color.titleColor)
-                        .font(DS.Font.fontText)
                     
-                    Spacer()
-                    
-                    HStack {
-                        Text("Слов \(text.count)")
-                            .foregroundStyle(DS.Color.textColor)
+                    ZStack(alignment: .topLeading) {
+                        // Placeholder
+                        if text.isEmpty {
+                            Text("Введите текст для проверки")
+                                .foregroundStyle(DS.Color.textColor)
+                                .font(DS.Font.fontText)
+                                .padding(.top, 8)
+                                .padding(.leading, 4)
+                        }
+                        
+                        TextEditor(text: $text)
+                            .focused($editorFocused)               // ← добавлено
+                            .scrollDismissesKeyboard(.interactively) // ← добавлено
+                            .scrollContentBackground(.hidden)
+                            .foregroundStyle(DS.Color.titleColor)
                             .font(DS.Font.fontText)
-                            .padding(.leading, 4)
-                        Spacer()
+                        
+                        VStack {
+                            Spacer()
+                            HStack(spacing: 4) {
+                                Text("Слов")
+                                    .foregroundStyle(DS.Color.titleColor)
+                                    .font(DS.Font.fontText)
+                                    .fontWeight(.bold)
+                                    .padding(.leading, 4)
+                                Text("\(text.count)")
+                                    .foregroundColor(DS.Color.positiveColor)
+                                    .font(DS.Font.fontText)
+                                    .fontWeight(.bold)
+                                
+                                Spacer()
+                                
+                                if !text.isEmpty {
+                                    Button(action: { text = "" }) {
+                                        Image(systemName: "trash.fill")
+                                            .foregroundColor(DS.Color.negativColor)
+                                    }
+                                }
+                                
+                            }
+                            .padding(.bottom, 8)
+                        }
                     }
-                    .padding(.bottom, 8)
+                    .padding()
+                    .frame(maxWidth: .infinity, maxHeight: 400)
+                    .background(DS.Color.navColor)
+                    .cornerRadius(8)
+                    
                 }
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: 400)
-                .background(DS.Color.navColor)
-                .cornerRadius(8)
-
+                .padding(.top, 20)
+                
+                PrimaryButton(title: "Проверить") {
+                    vm.run(text: text)
+                }
+                .padding(.top, 40)
+                //          .disabled(
+                //              wordCount < 100 ||
+                //              vm.remaining == 0 ||
+                //              vm.state == .running
+                //          )
+                
+                switch vm.state {
+                case .running:
+                    ProgressView("Проверяем текст...")
+                case .done(let unique):
+                    EmptyView()
+                case .error(let msg):
+                    Text("Ошибка: \(msg)")
+                default:
+                    EmptyView()
+                }
+                
+                Spacer()
             }
-            .padding(.top, 20)
-            //            Text("Осталось проверок: \(vm.remaining) / 5")
-            //                .font(.footnote)
+            .padding(.horizontal, 24)
+            .background(DS.Color.fonColor)
+            .onTapGesture {                          // ← добавлено: тап вне TextEditor скрывает клавиатуру
+                editorFocused = false
+            }
+            .task {
+                await vm.loadRemaining()
+            }
+            .navigationBarTitleDisplayMode(.inline)
             
-            PrimaryButton(title: "Проверить") {
-                vm.run(text: text)
+            .navigationDestination(isPresented: $showResult) {
+                ResultCheckView(unique: uniqueResult)
+                    .navigationBarTitleDisplayMode(.inline)
             }
-            .padding(.top, 40)
-            .disabled(
-                text.count < 100 ||
-                vm.remaining == 0 ||
-                (vm.state == .running)
-            )
-            
-            switch vm.state {
-            case .running:
-                ProgressView("Проверяем текст...")
-            case .done(let unique):
-                Text("Уникальность: \(unique, specifier: "%.2f")%")
-            case .error(let msg):
-                Text("Ошибка: \(msg)")
-            default:
-                EmptyView()
-            }
-            Spacer()
         }
-        .padding(.horizontal, 24)
-        .background(DS.Color.fonColor)
-        .task {
-            await vm.loadRemaining()
+        .tint(DS.Color.positiveColor)
+        .onChange(of: vm.state) { newState in
+            if case .done(let value) = newState {
+                uniqueResult = value
+                showResult = true
+            }
         }
     }
 }
@@ -87,3 +142,4 @@ struct CheckView: View {
 #Preview {
     CheckView()
 }
+

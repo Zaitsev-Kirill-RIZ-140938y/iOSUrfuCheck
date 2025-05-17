@@ -28,7 +28,7 @@ enum DS {
         static let fonColor = SwiftUI.Color(red: 0.086, green: 0.086, blue: 0.118)
         static let titleColor = SwiftUI.Color(red: 0.949, green: 0.949, blue: 0.949)
         static let positiveColor = SwiftUI.Color(red: 0.463, green: 0.78, blue: 0.506)
-        static let negativColor = SwiftUI.Color(red: 0.463, green: 0.78, blue: 0.506)
+        static let negativColor = SwiftUI.Color(red: 0.851, green: 0.408, blue: 0.373)
         static let navColor = SwiftUI.Color(red: 0.231, green: 0.231, blue: 0.247)
         static let textColor = SwiftUI.Color(red: 0.424, green: 0.424, blue: 0.424)
     }

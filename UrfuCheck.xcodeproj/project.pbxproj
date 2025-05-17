@@ -17,7 +17,6 @@
 		D14EFD602D909CF80036782F /* UrfuCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD5E2D909CF80036782F /* UrfuCheckTests.swift */; };
 		D14EFD642D909CFB0036782F /* UrfuCheckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */; };
 		D14EFD652D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD622D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift */; };
-		D154A7A72D91BEF20036C922 /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154A7A62D91BEF20036C922 /* CustomTextEditor.swift */; };
 		D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154A7A92D91D46F0036C922 /* PrimaryButton.swift */; };
 		D1E0C3AF2DCE39BE00C8DF66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E0C3AE2DCE39BE00C8DF66 /* GoogleService-Info.plist */; };
 		D1E0C3B22DCE3A9700C8DF66 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D1E0C3B12DCE3A9700C8DF66 /* FirebaseAuth */; };
@@ -31,6 +30,11 @@
 		D1E0C3C82DCFAF9C00C8DF66 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E0C3C72DCFAF9C00C8DF66 /* SignInView.swift */; };
 		D1E0C3CE2DCFB1F400C8DF66 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E0C3CD2DCFB1F400C8DF66 /* SignInViewModel.swift */; };
 		D1E0C3D22DD26F5500C8DF66 /* AuthContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E0C3D12DD26F5500C8DF66 /* AuthContainerView.swift */; };
+		D1E369632DD5157300F63801 /* ResultCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E369622DD5157300F63801 /* ResultCheckView.swift */; };
+		D1E369652DD8E55800F63801 /* MockPlagiarismService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E369642DD8E55800F63801 /* MockPlagiarismService.swift */; };
+		D1E3696B2DD90A5100F63801 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3696A2DD90A5100F63801 /* AnimationView.swift */; };
+		D1E3696E2DD90BBB00F63801 /* DotLottie in Frameworks */ = {isa = PBXBuildFile; productRef = D1E3696D2DD90BBB00F63801 /* DotLottie */; };
+		D1E369702DD90F1D00F63801 /* AnimationLogo.json in Resources */ = {isa = PBXBuildFile; fileRef = D1E3696F2DD90F1D00F63801 /* AnimationLogo.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +68,6 @@
 		D14EFD5E2D909CF80036782F /* UrfuCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckTests.swift; sourceTree = "<group>"; };
 		D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckUITests.swift; sourceTree = "<group>"; };
 		D14EFD622D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D154A7A62D91BEF20036C922 /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
 		D154A7A92D91D46F0036C922 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		D1E0C3AE2DCE39BE00C8DF66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E0C3B72DCE4BED00C8DF66 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -75,6 +78,11 @@
 		D1E0C3C72DCFAF9C00C8DF66 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		D1E0C3CD2DCFB1F400C8DF66 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		D1E0C3D12DD26F5500C8DF66 /* AuthContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthContainerView.swift; sourceTree = "<group>"; };
+		D1E369622DD5157300F63801 /* ResultCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCheckView.swift; sourceTree = "<group>"; };
+		D1E369642DD8E55800F63801 /* MockPlagiarismService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlagiarismService.swift; sourceTree = "<group>"; };
+		D1E3696A2DD90A5100F63801 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		D1E3696F2DD90F1D00F63801 /* AnimationLogo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimationLogo.json; sourceTree = "<group>"; };
+		D1E369722DD9170B00F63801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1E0C3B62DCE3A9700C8DF66 /* FirebaseFunctions in Frameworks */,
+				D1E3696E2DD90BBB00F63801 /* DotLottie in Frameworks */,
 				D1E0C3B22DCE3A9700C8DF66 /* FirebaseAuth in Frameworks */,
 				D1E0C3B42DCE3A9700C8DF66 /* FirebaseFirestore in Frameworks */,
 			);
@@ -129,6 +138,7 @@
 		D14EFD472D909CF00036782F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D1E3696F2DD90F1D00F63801 /* AnimationLogo.json */,
 				D14EFD452D909CF00036782F /* Assets.xcassets */,
 				D14EFD462D909CF00036782F /* Extension.swift */,
 			);
@@ -139,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E0C3B92DCE9B3C00C8DF66 /* Backend.swift */,
+				D1E369642DD8E55800F63801 /* MockPlagiarismService.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E0C3BD2DCE9B7000C8DF66 /* CheckView.swift */,
+				D1E369622DD5157300F63801 /* ResultCheckView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -216,6 +228,7 @@
 		D14EFD562D909CF00036782F /* UrfuCheck */ = {
 			isa = PBXGroup;
 			children = (
+				D1E369722DD9170B00F63801 /* Info.plist */,
 				D14EFD552D909CF00036782F /* UrfuCheckApp.swift */,
 				D14EFD532D909CF00036782F /* ContentView.swift */,
 				D154A7A52D91BEDF0036C922 /* Helpers */,
@@ -249,8 +262,8 @@
 		D154A7A52D91BEDF0036C922 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D154A7A62D91BEF20036C922 /* CustomTextEditor.swift */,
 				D1162AD12DD3A76D005C398A /* CustomTextField.swift */,
+				D1E3696A2DD90A5100F63801 /* AnimationView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -283,6 +296,7 @@
 				D1E0C3B12DCE3A9700C8DF66 /* FirebaseAuth */,
 				D1E0C3B32DCE3A9700C8DF66 /* FirebaseFirestore */,
 				D1E0C3B52DCE3A9700C8DF66 /* FirebaseFunctions */,
+				D1E3696D2DD90BBB00F63801 /* DotLottie */,
 			);
 			productName = UrfuCheck;
 			productReference = D1426AD02D6B5E8100DF8A97 /* UrfuCheck.app */;
@@ -362,6 +376,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				D1E0C3B02DCE3A9700C8DF66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D1E3696C2DD90B1300F63801 /* XCRemoteSwiftPackageReference "dotlottie-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D1426AD12D6B5E8100DF8A97 /* Products */;
@@ -383,6 +398,7 @@
 				D14EFD572D909CF00036782F /* Assets.xcassets in Resources */,
 				D14EFD582D909CF00036782F /* Preview Assets.xcassets in Resources */,
 				D1E0C3AF2DCE39BE00C8DF66 /* GoogleService-Info.plist in Resources */,
+				D1E369702DD90F1D00F63801 /* AnimationLogo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,15 +425,17 @@
 			files = (
 				D14EFD592D909CF00036782F /* Extension.swift in Sources */,
 				D1E0C3B82DCE4BED00C8DF66 /* SignUpViewModel.swift in Sources */,
+				D1E369632DD5157300F63801 /* ResultCheckView.swift in Sources */,
 				D1E0C3C02DCE9BFA00C8DF66 /* RootView.swift in Sources */,
 				D1E0C3BA2DCE9B3C00C8DF66 /* Backend.swift in Sources */,
 				D1E0C3D22DD26F5500C8DF66 /* AuthContainerView.swift in Sources */,
 				D14EFD5A2D909CF00036782F /* SignUpView.swift in Sources */,
+				D1E3696B2DD90A5100F63801 /* AnimationView.swift in Sources */,
 				D14EFD5B2D909CF00036782F /* ContentView.swift in Sources */,
 				D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */,
 				D1E0C3CE2DCFB1F400C8DF66 /* SignInViewModel.swift in Sources */,
+				D1E369652DD8E55800F63801 /* MockPlagiarismService.swift in Sources */,
 				D1E0C3BC2DCE9B6000C8DF66 /* CheckViewModel.swift in Sources */,
-				D154A7A72D91BEF20036C922 /* CustomTextEditor.swift in Sources */,
 				D1E0C3BE2DCE9B7000C8DF66 /* CheckView.swift in Sources */,
 				D14EFD5D2D909CF00036782F /* UrfuCheckApp.swift in Sources */,
 				D1E0C3C82DCFAF9C00C8DF66 /* SignInView.swift in Sources */,
@@ -589,12 +607,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UrfuCheck/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UrfuCheck/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,12 +642,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UrfuCheck/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UrfuCheck/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -781,6 +803,14 @@
 				minimumVersion = 11.12.0;
 			};
 		};
+		D1E3696C2DD90B1300F63801 /* XCRemoteSwiftPackageReference "dotlottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LottieFiles/dotlottie-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -798,6 +828,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1E0C3B02DCE3A9700C8DF66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFunctions;
+		};
+		D1E3696D2DD90BBB00F63801 /* DotLottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1E3696C2DD90B1300F63801 /* XCRemoteSwiftPackageReference "dotlottie-ios" */;
+			productName = DotLottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

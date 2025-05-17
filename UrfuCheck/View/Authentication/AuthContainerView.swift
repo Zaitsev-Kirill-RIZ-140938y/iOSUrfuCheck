@@ -9,13 +9,20 @@ import SwiftUI
 
 struct AuthContainerView: View {
     @State private var showLogin = true
-
+    var onAuthSuccess: () -> Void
+    
     var body: some View {
         Group {
             if showLogin {
-                SignInView(onToggleAuth: { showLogin = false })
+                SignInView(
+                    onToggleAuth: { showLogin = false },
+                    onAuthSuccess: onAuthSuccess
+                )
             } else {
-                SignUpView(onToggleAuth: { showLogin = true })
+                SignUpView(
+                    onToggleAuth: { showLogin = true },
+                    onAuthSuccess: onAuthSuccess
+                )
             }
         }
         .animation(.easeInOut, value: showLogin)
@@ -24,5 +31,5 @@ struct AuthContainerView: View {
 }
 
 #Preview {
-    AuthContainerView()
+    AuthContainerView(onAuthSuccess: { })
 }

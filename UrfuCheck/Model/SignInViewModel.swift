@@ -16,20 +16,24 @@ final class SignInViewModel: ObservableObject {
         case loading
         case error(String)
     }
-
+    
     @Published var state: State = .idle
-
+    
     func signIn(email: String, password: String) {
         state = .loading
         Task {
             do {
-                let result = try await Auth.auth().signIn(withEmail: email, password: password)
-
+                let result = try await Auth.auth().signIn(
+                    withEmail: email,
+                    password: password
+                )
+                
+                try await result.user.reload()
+                
                 guard result.user.isEmailVerified else {
                     state = .error("Пожалуйста, подтвердите свою почту перед входом.")
                     return
                 }
-
                 state = .idle
             } catch {
                 state = .error(error.localizedDescription)

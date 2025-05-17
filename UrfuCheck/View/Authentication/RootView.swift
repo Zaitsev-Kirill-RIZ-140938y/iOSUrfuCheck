@@ -11,31 +11,39 @@ import FirebaseAuth
 struct RootView: View {
     @State private var isAuthenticated = false
     @State private var isCheckingAuth = true
-
+    
     var body: some View {
         Group {
             if isCheckingAuth {
-                ProgressView("Загрузка...")
+                AnimationView()
             } else if isAuthenticated {
                 CheckView()
             } else {
-                SignUpView {
+                AuthContainerView {
                     isAuthenticated = true
                 }
             }
         }
         .task {
+            let start = Date()
+
             if let user = Auth.auth().currentUser {
                 do {
                     try await user.reload()
                     isAuthenticated = user.isEmailVerified
                 } catch {
-                    print("reload error: \(error.localizedDescription)")
+                    print(error.localizedDescription)
                     isAuthenticated = false
                 }
             } else {
                 isAuthenticated = false
             }
+
+            let elapsed = Date().timeIntervalSince(start)
+            let remaining = max(0, 3 - elapsed)
+
+            try? await Task.sleep(nanoseconds: UInt64(remaining * 1_000_000_000))
+
             isCheckingAuth = false
         }
     }
