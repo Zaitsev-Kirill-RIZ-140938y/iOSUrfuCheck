@@ -19,6 +19,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct UrfuCheckApp: App {
     
+    init() {
+            UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(DS.Color.positiveColor)
+            
+            UISegmentedControl.appearance().backgroundColor = UIColor(DS.Color.navColor)
+            
+            UISegmentedControl.appearance().setTitleTextAttributes([
+                .foregroundColor: UIColor(DS.Color.titleColor),
+                .font: UIFont.systemFont(ofSize: 14, weight: .bold)
+            ], for: .normal)
+            
+            UISegmentedControl.appearance().setTitleTextAttributes([
+                .foregroundColor: UIColor(DS.Color.titleColor),
+                .font: UIFont.systemFont(ofSize: 14, weight: .bold)
+            ], for: .selected)
+        }
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
