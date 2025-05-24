@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D1162AD22DD3A76D005C398A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1162AD12DD3A76D005C398A /* CustomTextField.swift */; };
+		D11993A12DE0C1B900544367 /* PlagiarismTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11993A02DE0C1B900544367 /* PlagiarismTextView.swift */; };
+		D11993A32DE0C1D000544367 /* UrlListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11993A22DE0C1D000544367 /* UrlListView.swift */; };
 		D14EFD572D909CF00036782F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14EFD452D909CF00036782F /* Assets.xcassets */; };
 		D14EFD582D909CF00036782F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14EFD4A2D909CF00036782F /* Preview Assets.xcassets */; };
 		D14EFD592D909CF00036782F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD462D909CF00036782F /* Extension.swift */; };
@@ -56,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		D1162AD12DD3A76D005C398A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D11993A02DE0C1B900544367 /* PlagiarismTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlagiarismTextView.swift; sourceTree = "<group>"; };
+		D11993A22DE0C1D000544367 /* UrlListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlListView.swift; sourceTree = "<group>"; };
 		D1426AD02D6B5E8100DF8A97 /* UrfuCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrfuCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1426AE02D6B5E8200DF8A97 /* UrfuCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrfuCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1426AEA2D6B5E8200DF8A97 /* UrfuCheckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrfuCheckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +199,8 @@
 			children = (
 				D1E0C3BD2DCE9B7000C8DF66 /* CheckView.swift */,
 				D1E369622DD5157300F63801 /* ResultCheckView.swift */,
+				D11993A02DE0C1B900544367 /* PlagiarismTextView.swift */,
+				D11993A22DE0C1D000544367 /* UrlListView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -435,10 +441,12 @@
 				D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */,
 				D1E0C3CE2DCFB1F400C8DF66 /* SignInViewModel.swift in Sources */,
 				D1E369652DD8E55800F63801 /* MockPlagiarismService.swift in Sources */,
+				D11993A32DE0C1D000544367 /* UrlListView.swift in Sources */,
 				D1E0C3BC2DCE9B6000C8DF66 /* CheckViewModel.swift in Sources */,
 				D1E0C3BE2DCE9B7000C8DF66 /* CheckView.swift in Sources */,
 				D14EFD5D2D909CF00036782F /* UrfuCheckApp.swift in Sources */,
 				D1E0C3C82DCFAF9C00C8DF66 /* SignInView.swift in Sources */,
+				D11993A12DE0C1B900544367 /* PlagiarismTextView.swift in Sources */,
 				D1162AD22DD3A76D005C398A /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

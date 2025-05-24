@@ -13,13 +13,31 @@ struct SubmitResponse: Decodable {
     let remaining: Int
 }
 
-struct CheckResponse: Decodable {
-    let uid: String
-    let textUnique: Double
+struct CheckResponse: Decodable, Equatable, Identifiable {
+    let id = UUID()
+    let dateCheck: String
+    let unique: Double
+    let clearText: String
+    let mixedWords: String
+    let urls: [PlagiarismUrl]
 
     enum CodingKeys: String, CodingKey {
-        case uid
-        case textUnique = "text_unique"
+        case dateCheck = "date_check"
+        case unique
+        case clearText = "clear_text"
+        case mixedWords = "mixed_words"
+        case urls
+    }
+}
+
+struct PlagiarismUrl: Decodable, Identifiable, Equatable {
+    let id = UUID()      // чтобы удобно выводить в SwiftUI
+    let url: String
+    let plagiat: Double
+    let words: String
+
+    enum CodingKeys: String, CodingKey {
+        case url, plagiat, words
     }
 }
 

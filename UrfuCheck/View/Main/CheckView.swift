@@ -13,8 +13,7 @@ struct CheckView: View {
     @State private var text = ""
     @FocusState private var editorFocused: Bool
     
-    @State private var showResult = false
-    @State private var uniqueResult: Double = 0
+    @State private var checkResponse: CheckResponse? = nil
     
     init() {
 #if DEBUG
@@ -49,8 +48,8 @@ struct CheckView: View {
                     }
                     
                     TextEditor(text: $text)
-                        .focused($editorFocused)               // ← добавлено
-                        .scrollDismissesKeyboard(.interactively) // ← добавлено
+                        .focused($editorFocused)
+                        .scrollDismissesKeyboard(.interactively)
                         .scrollContentBackground(.hidden)
                         .foregroundStyle(DS.Color.titleColor)
                         .font(DS.Font.fontText)
@@ -102,7 +101,7 @@ struct CheckView: View {
             switch vm.state {
             case .running:
                 ProgressView("Проверяем текст...")
-            case .done(let unique):
+            case .done:
                 EmptyView()
             case .error(let msg):
                 Text("Ошибка: \(msg)")
@@ -122,13 +121,16 @@ struct CheckView: View {
         }
         .tint(DS.Color.positiveColor)
         .onChange(of: vm.state) { newState in
-            if case .done(let value) = newState {
-                uniqueResult = value
-                showResult = true
+            if case .done(let response) = newState {
+                checkResponse = response
+            } else {
+                checkResponse = nil
             }
         }
-        .sheet(isPresented: $showResult) {
-            ResultCheckView(unique: uniqueResult)
+        .sheet(item: $checkResponse, onDismiss: {
+            checkResponse = nil
+        }) { response in
+            ResultCheckView(response: response)
         }
     }
 }

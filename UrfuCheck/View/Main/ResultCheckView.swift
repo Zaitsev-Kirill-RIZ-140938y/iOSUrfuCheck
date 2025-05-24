@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ResultCheckView: View {
     /// уникальность от 0 до 100
-    let unique: Double
+    let response: CheckResponse
+    
+    @State private var selectedTab = 1 // 1 - Плагиат, 2 - Источники
     
     // Переводим значение в [0,1]
-    private var fraction: Double { max(0, min(1, unique / 100)) }
+    private var fraction: Double { max(0, min(1, response.unique / 100)) }
     private var percentUnique: Int { Int(fraction * 100) }
     private var percentPlagiarism: Int { 100 - percentUnique }
     
@@ -67,13 +69,21 @@ struct ResultCheckView: View {
                 .cornerRadius(12)
                 
                 
-                Picker(selection: .constant(1), label: Text("Picker")) {
+                Picker(selection: $selectedTab, label: Text("Picker")) {
                     Text("Плагиат").tag(1)
                     Text("URL Источник").tag(2)
                 }
                 .pickerStyle(.segmented)
                 .tint(DS.Color.positiveColor)
                 
+                if selectedTab == 1 {
+                    PlagiarismTextView(
+                        clearText: response.clearText,
+                        plagWords: response.urls.flatMap { $0.words.split(separator: " ").compactMap { Int($0) } }
+                    )
+                } else {
+                    UrlListView(urls: response.urls)
+                }
             }
             Spacer()
         }
@@ -84,5 +94,13 @@ struct ResultCheckView: View {
 }
 
 #Preview {
-    ResultCheckView(unique: 0.5)
+    ResultCheckView(response: CheckResponse(
+        dateCheck: "01.06.2025 15:30",
+        unique: 92.5,
+        clearText: "Это пример текста для проверки на плагиат. Ещё одна фраза для теста.",
+        mixedWords: "",
+        urls: [
+            PlagiarismUrl(url: "https://en.wikipedia.org/wiki/Wikipedia", plagiat: 100, words: "0 1 2 3")
+        ]
+    ))
 }

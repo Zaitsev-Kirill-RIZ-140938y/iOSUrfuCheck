@@ -12,7 +12,7 @@ final class CheckViewModel: ObservableObject {
     enum State: Equatable {
         case idle
         case running
-        case done(Double)
+        case done(CheckResponse)
         case error(String)
     }
 
@@ -34,11 +34,11 @@ final class CheckViewModel: ObservableObject {
                 remaining = resp.remaining
 
                 let result = try await service.poll(for: resp.uid)
-                print("✅ DONE, уникальность = \(result.textUnique)")
+                print("✅ DONE, уникальность = \(result.unique)")
 
                 // Обновляем state на главном потоке
                 DispatchQueue.main.async {
-                    self.state = .done(result.textUnique)
+                    self.state = .done(result)
                 }
             } catch {
                 print("❌ Error in run():", error.localizedDescription)

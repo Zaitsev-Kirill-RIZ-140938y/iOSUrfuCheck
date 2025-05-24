@@ -7,13 +7,19 @@
 
 import Foundation
 
-/// Мок-реализация протокола, возвращает фейковые данные сразу
 final class MockPlagiarismService: PlagiarismServiceProtocol {
     enum Scenario {
         case alwaysClean      // всегда чисто
         case alwaysPlagiarized // всегда плагиат
         case random            // рандом
     }
+    
+    private let sampleUrls = [
+        "https://en.wikipedia.org/wiki/Wikipedia",
+        "https://habr.com/ru/articles/101010/",
+        "https://text.ru/",
+        "https://vc.ru/u/12345"
+    ]
 
     private let scenario: Scenario
     private let delay: UInt64
@@ -34,14 +40,28 @@ final class MockPlagiarismService: PlagiarismServiceProtocol {
 
     func poll(for uid: String) async throws -> CheckResponse {
         try await Task.sleep(nanoseconds: delay)
-        let isPlag = (scenario == .alwaysPlagiarized)
-                   || (scenario == .random && Bool.random())
-        let unique = isPlag
-            ? Double.random(in: 0...50)    // низкая уникальность
-            : Double.random(in: 90...100)  // высокая уникальность
-        return CheckResponse(uid: uid, textUnique: unique)
+        let unique = Double.random(in: 70...100)
+        let countWords = 100
+        // ОБНОВЛЕНО: объявили i для индекса
+        let plagWords = (0..<countWords).compactMap { i in Bool.random() ? "\(i)" : nil }.joined(separator: " ")
+        let urlCount = Int.random(in: 1...2)
+        let urls = (0..<urlCount).map { _ in
+            PlagiarismUrl(
+                url: sampleUrls.randomElement()!,
+                plagiat: Double(Int.random(in: 10...90)),
+                words: plagWords
+            )
+        }
+        return CheckResponse(
+            dateCheck: DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short),
+            unique: unique,
+            clearText: "Sample clear text here...",
+            mixedWords: "",
+            urls: urls
+        )
     }
 
+    // Перенес внутрь класса!
     func remaining() async throws -> Int {
         try await Task.sleep(nanoseconds: delay)
         return 10
