@@ -15,29 +15,41 @@ struct SubmitResponse: Decodable {
 
 struct CheckResponse: Decodable, Equatable, Identifiable {
     let id = UUID()
-    let dateCheck: String
-    let unique: Double
+    let uid: String
     let clearText: String
-    let mixedWords: String
-    let urls: [PlagiarismUrl]
+    let textUnique: Double?
+    let jsonResult: JsonResult?
+
+    enum CodingKeys: String, CodingKey {
+        case uid
+        case textUnique = "text_unique"
+        case clearText  = "clear_text" // ← маппинг
+        case jsonResult = "json_result"
+    }
+}
+
+struct JsonResult: Decodable, Equatable {
+    let dateCheck: String?
+    let unique: Double?
+    let urls: [PlagiarismUrl]?
 
     enum CodingKeys: String, CodingKey {
         case dateCheck = "date_check"
         case unique
-        case clearText = "clear_text"
-        case mixedWords = "mixed_words"
         case urls
     }
 }
 
 struct PlagiarismUrl: Decodable, Identifiable, Equatable {
-    let id = UUID()      // чтобы удобно выводить в SwiftUI
+    let id = UUID()
     let url: String
     let plagiat: Double
-    let words: String
+    let words: String?
 
     enum CodingKeys: String, CodingKey {
-        case url, plagiat, words
+        case url
+        case plagiat
+        case words
     }
 }
 
@@ -66,7 +78,7 @@ final class PlagiarismService: PlagiarismServiceProtocol {
     func submit(text: String) async throws -> SubmitResponse {
         try await withRetry(retries: 2, delay: 1_000_000_000) {
             let token = try await Auth.auth().currentUser?.getIDToken() ?? ""
-            print("🔑 token isEmpty? ", token.isEmpty)
+            print("Токен отсутствует? ", token.isEmpty)
 
             var request = URLRequest(url: baseURL.appendingPathComponent("submitText"))
             request.httpMethod = "POST"
@@ -76,7 +88,7 @@ final class PlagiarismService: PlagiarismServiceProtocol {
 
             let (data, response) = try await perform(request)
             let code = (response as? HTTPURLResponse)?.statusCode ?? 0
-            print("📤 submit → status = \(code), response = \(String(data: data, encoding: .utf8) ?? "nil")")
+            print("Submit → status = \(code), response = \(String(data: data, encoding: .utf8) ?? "nil")")
             return try JSONDecoder().decode(SubmitResponse.self, from: data)
         }
     }
@@ -90,7 +102,7 @@ final class PlagiarismService: PlagiarismServiceProtocol {
             while true {
                 let (data, response) = try await perform(url)
                 let code = (response as? HTTPURLResponse)?.statusCode ?? 0
-                print("📡 poll → status = \(code), body = \(String(data: data, encoding: .utf8) ?? "nil")")
+                print("Poll → status = \(code), body = \(String(data: data, encoding: .utf8) ?? "nil")") // <-- ВОТ ЭТА СТРОКА!
 
                 if code == 200 {
                     return try JSONDecoder().decode(CheckResponse.self, from: data)
@@ -115,7 +127,6 @@ final class PlagiarismService: PlagiarismServiceProtocol {
         }
     }
 
-    // MARK: - Perform with fallback to URLSession.shared on networkConnectionLost
     private func perform(_ request: URLRequest) async throws -> (Data, URLResponse) {
         do {
             return try await session.data(for: request)
@@ -144,7 +155,6 @@ private extension URL {
 }
 
 extension PlagiarismService {
-    /// Примитивный retry с задержкой
     private func withRetry<T>(
         retries: Int = 3,
         delay: UInt64 = 1_000_000_000,

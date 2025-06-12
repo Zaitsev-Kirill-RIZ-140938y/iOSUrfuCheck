@@ -20,6 +20,9 @@
 		D14EFD642D909CFB0036782F /* UrfuCheckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */; };
 		D14EFD652D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14EFD622D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift */; };
 		D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154A7A92D91D46F0036C922 /* PrimaryButton.swift */; };
+		D18521012DFB098B00D64B2F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18521002DFB098B00D64B2F /* HistoryView.swift */; };
+		D18521062DFB1D1C00D64B2F /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18521052DFB1D1C00D64B2F /* HistoryViewModel.swift */; };
+		D18521082DFB273400D64B2F /* HistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18521072DFB273400D64B2F /* HistoryRow.swift */; };
 		D1E0C3AF2DCE39BE00C8DF66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E0C3AE2DCE39BE00C8DF66 /* GoogleService-Info.plist */; };
 		D1E0C3B22DCE3A9700C8DF66 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D1E0C3B12DCE3A9700C8DF66 /* FirebaseAuth */; };
 		D1E0C3B42DCE3A9700C8DF66 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D1E0C3B32DCE3A9700C8DF66 /* FirebaseFirestore */; };
@@ -73,6 +76,9 @@
 		D14EFD612D909CFB0036782F /* UrfuCheckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckUITests.swift; sourceTree = "<group>"; };
 		D14EFD622D909CFB0036782F /* UrfuCheckUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrfuCheckUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D154A7A92D91D46F0036C922 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		D18521002DFB098B00D64B2F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		D18521052DFB1D1C00D64B2F /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		D18521072DFB273400D64B2F /* HistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRow.swift; sourceTree = "<group>"; };
 		D1E0C3AE2DCE39BE00C8DF66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E0C3B72DCE4BED00C8DF66 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		D1E0C3B92DCE9B3C00C8DF66 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 				D14EFD632D909CFB0036782F /* UrfuCheckUITests */,
 				D1426AD12D6B5E8100DF8A97 /* Products */,
 				D1E0C3AE2DCE39BE00C8DF66 /* GoogleService-Info.plist */,
+				D18521042DFB0B6400D64B2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +171,7 @@
 				D1E0C3CD2DCFB1F400C8DF66 /* SignInViewModel.swift */,
 				D1E0C3B72DCE4BED00C8DF66 /* SignUpViewModel.swift */,
 				D1E0C3BB2DCE9B6000C8DF66 /* CheckViewModel.swift */,
+				D18521052DFB1D1C00D64B2F /* HistoryViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +198,8 @@
 		D14EFD4E2D909CF00036782F /* History */ = {
 			isa = PBXGroup;
 			children = (
+				D18521002DFB098B00D64B2F /* HistoryView.swift */,
+				D18521072DFB273400D64B2F /* HistoryRow.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -280,6 +290,13 @@
 				D154A7A92D91D46F0036C922 /* PrimaryButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		D18521042DFB0B6400D64B2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,14 +450,17 @@
 				D1E0C3B82DCE4BED00C8DF66 /* SignUpViewModel.swift in Sources */,
 				D1E369632DD5157300F63801 /* ResultCheckView.swift in Sources */,
 				D1E0C3C02DCE9BFA00C8DF66 /* RootView.swift in Sources */,
+				D18521082DFB273400D64B2F /* HistoryRow.swift in Sources */,
 				D1E0C3BA2DCE9B3C00C8DF66 /* Backend.swift in Sources */,
 				D1E0C3D22DD26F5500C8DF66 /* AuthContainerView.swift in Sources */,
 				D14EFD5A2D909CF00036782F /* SignUpView.swift in Sources */,
+				D18521012DFB098B00D64B2F /* HistoryView.swift in Sources */,
 				D1E3696B2DD90A5100F63801 /* AnimationView.swift in Sources */,
 				D14EFD5B2D909CF00036782F /* ContentView.swift in Sources */,
 				D154A7AA2D91D46F0036C922 /* PrimaryButton.swift in Sources */,
 				D1E0C3CE2DCFB1F400C8DF66 /* SignInViewModel.swift in Sources */,
 				D1E369652DD8E55800F63801 /* MockPlagiarismService.swift in Sources */,
+				D18521062DFB1D1C00D64B2F /* HistoryViewModel.swift in Sources */,
 				D11993A32DE0C1D000544367 /* UrlListView.swift in Sources */,
 				D1E0C3BC2DCE9B6000C8DF66 /* CheckViewModel.swift in Sources */,
 				D1E0C3BE2DCE9B7000C8DF66 /* CheckView.swift in Sources */,

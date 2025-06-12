@@ -20,20 +20,27 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct UrfuCheckApp: App {
     
     init() {
-            UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(DS.Color.positiveColor)
-            
-            UISegmentedControl.appearance().backgroundColor = UIColor(DS.Color.navColor)
-            
-            UISegmentedControl.appearance().setTitleTextAttributes([
-                .foregroundColor: UIColor(DS.Color.titleColor),
-                .font: UIFont.systemFont(ofSize: 14, weight: .bold)
-            ], for: .normal)
-            
-            UISegmentedControl.appearance().setTitleTextAttributes([
-                .foregroundColor: UIColor(DS.Color.titleColor),
-                .font: UIFont.systemFont(ofSize: 14, weight: .bold)
-            ], for: .selected)
-        }
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(DS.Color.positiveColor)
+        
+        UISegmentedControl.appearance().backgroundColor = UIColor(DS.Color.navColor)
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([
+            .foregroundColor: UIColor(DS.Color.titleColor),
+            .font: UIFont.systemFont(ofSize: 14, weight: .bold)
+        ], for: .normal)
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([
+            .foregroundColor: UIColor(DS.Color.titleColor),
+            .font: UIFont.systemFont(ofSize: 14, weight: .bold)
+        ], for: .selected)
+        
+        UITabBar.appearance().tintColor = UIColor(DS.Color.positiveColor)
+        
+        UITabBar.appearance().unselectedItemTintColor = UIColor(DS.Color.titleColor)
+        
+        UITabBar.appearance().backgroundColor = UIColor(DS.Color.navColor)
+        
+    }
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     

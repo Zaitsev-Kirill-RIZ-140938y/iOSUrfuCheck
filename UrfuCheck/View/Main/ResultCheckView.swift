@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct ResultCheckView: View {
-    /// уникальность от 0 до 100
+    
     let response: CheckResponse
     
-    @State private var selectedTab = 1 // 1 - Плагиат, 2 - Источники
+    @State private var selectedTab = 1
     
-    // Переводим значение в [0,1]
-    private var fraction: Double { max(0, min(1, response.unique / 100)) }
+    private var fraction: Double { max(0, min(1, (response.jsonResult?.unique ?? 0) / 100)) }
     private var percentUnique: Int { Int(fraction * 100) }
     private var percentPlagiarism: Int { 100 - percentUnique }
     
@@ -79,10 +78,21 @@ struct ResultCheckView: View {
                 if selectedTab == 1 {
                     PlagiarismTextView(
                         clearText: response.clearText,
-                        plagWords: response.urls.flatMap { $0.words.split(separator: " ").compactMap { Int($0) } }
+                        plagWords: response.jsonResult?.urls?
+                            .flatMap { $0.words?
+                                .split(separator: " ")
+                                .compactMap { Int($0) } ?? [] } ?? []
                     )
+                    .foregroundStyle(DS.Color.titleColor)
+                                        .font(DS.Font.fontText)
+                                        .background(DS.Color.navColor)
+                                        .cornerRadius(8)
                 } else {
-                    UrlListView(urls: response.urls)
+                    UrlListView(urls: response.jsonResult?.urls ?? [])
+                        .foregroundStyle(DS.Color.titleColor)
+                        .font(DS.Font.fontText)
+                        .background(DS.Color.navColor)
+                        .cornerRadius(8)
                 }
             }
             Spacer()
@@ -95,12 +105,17 @@ struct ResultCheckView: View {
 
 #Preview {
     ResultCheckView(response: CheckResponse(
-        dateCheck: "01.06.2025 15:30",
-        unique: 92.5,
+        uid: "mock-1",
         clearText: "Это пример текста для проверки на плагиат. Ещё одна фраза для теста.",
-        mixedWords: "",
-        urls: [
-            PlagiarismUrl(url: "https://en.wikipedia.org/wiki/Wikipedia", plagiat: 100, words: "0 1 2 3")
-        ]
+        textUnique: 92.5,
+        jsonResult: JsonResult(
+            dateCheck: "01.06.2025 15:30",
+            unique: 92.5,
+            urls: [
+                PlagiarismUrl(url: "https://en.wikipedia.org/wiki/Wikipedia",
+                              plagiat: 100,
+                              words: "0 1 2 3")
+            ]
+        )
     ))
 }

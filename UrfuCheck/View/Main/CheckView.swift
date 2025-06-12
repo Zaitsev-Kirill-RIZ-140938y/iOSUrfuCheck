@@ -53,6 +53,7 @@ struct CheckView: View {
                         .scrollContentBackground(.hidden)
                         .foregroundStyle(DS.Color.titleColor)
                         .font(DS.Font.fontText)
+                        .padding(.bottom, 50)
                     
                     VStack {
                         Spacer()
@@ -92,15 +93,13 @@ struct CheckView: View {
                 vm.run(text: text)
             }
             .padding(.top, 40)
-            //          .disabled(
-            //              wordCount < 100 ||
-            //              vm.remaining == 0 ||
-            //              vm.state == .running
-            //          )
             
             switch vm.state {
             case .running:
                 ProgressView("Проверяем текст...")
+                    .padding(.top, 40)
+                    .font(DS.Font.fontTitle3)
+                    .foregroundStyle(DS.Color.titleColor)
             case .done:
                 EmptyView()
             case .error(let msg):
@@ -123,6 +122,13 @@ struct CheckView: View {
         .onChange(of: vm.state) { newState in
             if case .done(let response) = newState {
                 checkResponse = response
+                Task {
+                    do {
+                        try await HistoryService().save(response)
+                    } catch {
+                        print("Не удалось сохранить в историю:", error)
+                    }
+                }
             } else {
                 checkResponse = nil
             }

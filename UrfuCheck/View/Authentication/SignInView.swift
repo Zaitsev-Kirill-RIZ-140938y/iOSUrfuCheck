@@ -86,6 +86,7 @@ struct SignInView: View {
         }
         .padding(.horizontal, 24)
         .background(DS.Color.fonColor)
+        .ignoresSafeArea(.keyboard, edges: .all)
     }
 }
 

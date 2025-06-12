@@ -24,7 +24,6 @@ final class MockPlagiarismService: PlagiarismServiceProtocol {
     private let scenario: Scenario
     private let delay: UInt64
 
-    /// - parameter delay: задержка в наносекундах для показа ProgressView
     init(scenario: Scenario = .random,
          delay: UInt64 = 200_000_000) // 0.2 секунды
     {
@@ -40,9 +39,9 @@ final class MockPlagiarismService: PlagiarismServiceProtocol {
 
     func poll(for uid: String) async throws -> CheckResponse {
         try await Task.sleep(nanoseconds: delay)
+
         let unique = Double.random(in: 70...100)
         let countWords = 100
-        // ОБНОВЛЕНО: объявили i для индекса
         let plagWords = (0..<countWords).compactMap { i in Bool.random() ? "\(i)" : nil }.joined(separator: " ")
         let urlCount = Int.random(in: 1...2)
         let urls = (0..<urlCount).map { _ in
@@ -52,14 +51,21 @@ final class MockPlagiarismService: PlagiarismServiceProtocol {
                 words: plagWords
             )
         }
-        return CheckResponse(
+
+        let jsonResult = JsonResult(
             dateCheck: DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short),
             unique: unique,
-            clearText: "Sample clear text here...",
-            mixedWords: "",
             urls: urls
         )
+
+        return CheckResponse(
+            uid: uid,
+            clearText: "Mock clear text …",   // ← теперь требуется
+            textUnique: unique,
+            jsonResult: jsonResult
+        )
     }
+
 
     // Перенес внутрь класса!
     func remaining() async throws -> Int {

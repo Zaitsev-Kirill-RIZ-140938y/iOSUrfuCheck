@@ -79,7 +79,8 @@ struct SignUpView: View {
                 Text(message).foregroundColor(.red).font(.footnote)
             } else if vm.state == .emailVerificationSent {
                 Text("Письмо с подтверждением отправлено на почту.")
-                    .foregroundColor(.green).font(.footnote)
+                    .foregroundColor(DS.Color.positiveColor).bold()
+                    .padding(.top, 40)
             }
             Spacer()
         }
@@ -90,6 +91,7 @@ struct SignUpView: View {
         }
         .padding(.horizontal, 24)
         .background(DS.Color.fonColor)
+        .ignoresSafeArea(.keyboard, edges: .all)
     }
 }
 

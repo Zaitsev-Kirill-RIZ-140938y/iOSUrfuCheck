@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 
 @MainActor
 final class CheckViewModel: ObservableObject {
@@ -25,7 +27,6 @@ final class CheckViewModel: ObservableObject {
         self.service = service
     }
 
-    /// Запускает проверку уникальности текста
     func run(text: String) {
         Task {
             do {
@@ -34,7 +35,7 @@ final class CheckViewModel: ObservableObject {
                 remaining = resp.remaining
 
                 let result = try await service.poll(for: resp.uid)
-                print("✅ DONE, уникальность = \(result.unique)")
+                print("✅ DONE, уникальность = \(result.jsonResult?.unique ?? 0)")
 
                 // Обновляем state на главном потоке
                 DispatchQueue.main.async {
@@ -58,5 +59,37 @@ final class CheckViewModel: ObservableObject {
             // В случае ошибки показываем сообщение
             self.state = .error(error.localizedDescription)
         }
+    }
+}
+
+final class HistoryService {
+    private let db = Firestore.firestore()
+    private var userId: String? {
+        Auth.auth().currentUser?.uid
+    }
+
+    /// Сохранить CheckResponse в коллекцию "history"
+    func save(_ response: CheckResponse) async throws {
+        guard let userId = userId else { throw URLError(.userAuthenticationRequired) }
+        let data: [String: Any] = [
+            "uid": response.uid,
+            "clearText": response.clearText,
+            "textUnique": response.textUnique ?? 0,
+            "jsonResult": [
+                "unique": response.jsonResult?.unique ?? 0,
+                "dateCheck": FieldValue.serverTimestamp(),
+                "urls": response.jsonResult?.urls?.map { [
+                    "url": $0.url,
+                    "plagiat": $0.plagiat,
+                    "words": $0.words ?? ""
+                ] } ?? []
+            ]
+        ]
+        try await db
+            .collection("users")
+            .document(userId)
+            .collection("history")
+            .document(response.uid)
+            .setData(data)
     }
 }

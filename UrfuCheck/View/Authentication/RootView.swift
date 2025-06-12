@@ -17,7 +17,18 @@ struct RootView: View {
             if isCheckingAuth {
                 AnimationView()
             } else if isAuthenticated {
-                CheckView()
+                TabView {
+                    CheckView()
+                        .tabItem {
+                            Label("Проверка", systemImage: "house.fill")
+                        }
+                    HistoryView()
+                        .tabItem {
+                            Label("История", systemImage: "clock.fill")
+                        }
+                }
+                .tint(DS.Color.positiveColor)
+                      
             } else {
                 AuthContainerView {
                     isAuthenticated = true
